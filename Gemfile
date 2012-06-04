@@ -8,9 +8,13 @@ gem 'rails', '3.2.5'
 gem 'sqlite3'
 gem 'clearance'
 gem 'quiet_assets'
+gem 'paperclip'
 
 group :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'cucumber-rails'
+  gem 'database_cleaner'
 end
 
 # Gems used only for assets and not required

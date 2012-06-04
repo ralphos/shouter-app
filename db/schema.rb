@@ -11,16 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120604150451) do
+ActiveRecord::Schema.define(:version => 20120604180821) do
+
+  create_table "photo_media", :force => true do |t|
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+  end
 
   create_table "shouts", :force => true do |t|
-    t.text     "body"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "medium_type"
+    t.integer  "medium_id"
   end
 
   add_index "shouts", ["user_id"], :name => "index_shouts_on_user_id"
+
+  create_table "text_media", :force => true do |t|
+    t.text "body"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

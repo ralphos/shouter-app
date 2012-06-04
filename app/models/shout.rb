@@ -1,4 +1,9 @@
 class Shout < ActiveRecord::Base
   belongs_to :user
-  attr_accessible :body
+  belongs_to :medium, polymorphic: true
+
+  def self.current
+    order('created_at desc')
+  end
+
 end

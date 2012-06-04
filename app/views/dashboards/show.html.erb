@@ -1,10 +1,14 @@
 <h1>Welcome <%= current_user.email %></h1>
 
-<%= form_for @shout do |form| %>
+<%= form_for(@text_medium, url: text_shouts_path) do |form| %>
   <%= form.text_field :body, placeholder: "Shout here!" %>
   <%= form.submit "Shout" %>
 <% end %>
 
-<% @shouts.each do |shout| %>
-  <div><%= shout.body %> <%= time_ago_in_words(shout.created_at) %> ago</div>
+<%= form_for @photo_medium, :url => photo_shouts_path, :html => { :multipart => true } do |form| %>
+  <%= form.file_field :photo %>
+  <%= form.submit "Shout Photo" %>
 <% end %>
+
+<%= render @shouts %>
+
