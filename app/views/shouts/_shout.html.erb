@@ -1,3 +1,7 @@
-<div class="shout"><%= render shout.medium %> <%= time_ago_in_words(shout.created_at) %> ago</div>
+<div class="shout">
+  <%= link_to shout.user.email, shout.user %> says:
+  <%= render shout.medium %> 
+  <%= time_ago_in_words(shout.created_at) %> ago
+</div>
 
 
