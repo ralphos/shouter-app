@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   include Clearance::User
 
-  has_many :shouts
   attr_accessible :email, :password
-
+  has_many :shouts
+  has_many :following_relationships
+  has_many :followed_users, through: :following_relationships
 end
